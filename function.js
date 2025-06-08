@@ -20,6 +20,7 @@ function gameStart() {
         eh03 = Math.floor(Math.random() * EH_NUMBER);
 
         enhance = 10;
+        shuffleArray(CARD);
     } else {
         ct = Math.floor(Math.random() * 100);
         if (ct == 0) {
