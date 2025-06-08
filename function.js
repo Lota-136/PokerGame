@@ -20,28 +20,29 @@ function gameStart() {
         eh03 = Math.floor(Math.random() * EH_NUMBER);
 
         enhance = 10;
-    }
-    ct = Math.floor(Math.random() * 100);
-    if (ct == 0) {
-        state = 7;
-        chanceTime();
     } else {
-        shuffleArray(CARD);
-        playerCard[0] = CARD[0];
-        playerCard[1] = CARD[1];
-        playerCard[2] = CARD[2];
-        playerCard[3] = CARD[3];
-        playerCard[4] = CARD[4];
-        sortArray(playerCard);
-    }
-    judgeRole(playerCard);
-
-    // 強化：占い師用
-    if (ehFortune >= 1) {
-        if (ehFortune * 5 > Math.random() * 100) {
-            isFortune = true;
+        ct = Math.floor(Math.random() * 100);
+        if (ct == 0) {
+            state = 7;
+            chanceTime();
         } else {
-            isFortune = false;
+            shuffleArray(CARD);
+            playerCard[0] = CARD[0];
+            playerCard[1] = CARD[1];
+            playerCard[2] = CARD[2];
+            playerCard[3] = CARD[3];
+            playerCard[4] = CARD[4];
+            sortArray(playerCard);
+        }
+        judgeRole(playerCard);
+    
+        // 強化：占い師用
+        if (ehFortune >= 1) {
+            if (ehFortune * 5 > Math.random() * 100) {
+                isFortune = true;
+            } else {
+                isFortune = false;
+            }
         }
     }
 }
