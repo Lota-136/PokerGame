@@ -18,9 +18,15 @@ function gameStart() {
         eh01 = Math.floor(Math.random() * EH_NUMBER);
         eh02 = Math.floor(Math.random() * EH_NUMBER);
         eh03 = Math.floor(Math.random() * EH_NUMBER);
-
         enhance = 10;
+        
         shuffleArray(CARD);
+        playerCard[0] = CARD[0];
+        playerCard[1] = CARD[1];
+        playerCard[2] = CARD[2];
+        playerCard[3] = CARD[3];
+        playerCard[4] = CARD[4];
+        sortArray(playerCard);
     } else {
         ct = Math.floor(Math.random() * 100);
         if (ct == 0) {
