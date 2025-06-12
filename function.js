@@ -27,6 +27,7 @@ function gameStart() {
         playerCard[3] = CARD[3];
         playerCard[4] = CARD[4];
         sortArray(playerCard);
+        judgeRole(playerCard);
     } else {
         ct = Math.floor(Math.random() * 100);
         if (ct == 0) {
