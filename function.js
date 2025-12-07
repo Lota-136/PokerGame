@@ -18,8 +18,9 @@ function gameStart() {
         eh01 = Math.floor(Math.random() * EH_NUMBER);
         eh02 = Math.floor(Math.random() * EH_NUMBER);
         eh03 = Math.floor(Math.random() * EH_NUMBER);
+
         enhance = 10;
-        
+
         shuffleArray(CARD);
         playerCard[0] = CARD[0];
         playerCard[1] = CARD[1];
@@ -43,7 +44,7 @@ function gameStart() {
             sortArray(playerCard);
         }
         judgeRole(playerCard);
-    
+
         // 強化：占い師用
         if (ehFortune >= 1) {
             if (ehFortune * 5 > Math.random() * 100) {
@@ -330,4 +331,46 @@ function ctResult() {
     }
     judgeRole(playerCard);
     getCoin();
+}
+
+function resetData() {
+    // 設定系
+    localStorage.removeItem("c0key");
+    localStorage.removeItem("c1key");
+    localStorage.removeItem("c2key");
+    localStorage.removeItem("c3key");
+    localStorage.removeItem("c4key");
+    localStorage.removeItem("isAnimation");
+    localStorage.removeItem("isSort");
+
+    // 背景
+    localStorage.removeItem("back");
+
+    // コイン数
+    localStorage.removeItem("coin");
+    localStorage.removeItem("coin2");
+
+    // 統計
+    localStorage.removeItem("rsf");
+    localStorage.removeItem("sf");
+    localStorage.removeItem("fourC");
+    localStorage.removeItem("fullhouse");
+    localStorage.removeItem("flush");
+    localStorage.removeItem("straight");
+    localStorage.removeItem("threeC");
+    localStorage.removeItem("twoP");
+    localStorage.removeItem("oneP");
+    localStorage.removeItem("plays");
+
+    // 強化系
+    localStorage.removeItem("enhance");  // 強化までのプレイ回数
+    localStorage.removeItem("ehOneP");
+    localStorage.removeItem("ehTwoP");
+    localStorage.removeItem("ehThreeC");
+    localStorage.removeItem("ehStraight");
+    localStorage.removeItem("ehFlush");
+    localStorage.removeItem("ehFullhouse");
+    localStorage.removeItem("ehNoP");
+    localStorage.removeItem("ehSeven");
+    localStorage.removeItem("ehFortune");
 }

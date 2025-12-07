@@ -131,7 +131,6 @@ let mouse = {};
 document.onmousemove = function (e) {
     mouse.x = e.clientX / scaleRate;
     mouse.y = e.clientY / scaleRate;
-    mouse.move = true;
 }
 
 let key;
@@ -162,6 +161,8 @@ function setup() {
     context = canvas.getContext(`2d`);
     document.body.appendChild(canvas);
 
+    canvas.style.touchAction = "none";
+
     imgCards.src = "png/cards.png";
     imgTitle.src = "png/title.png";
     imgIcon.src = "png/icon.png";
@@ -173,8 +174,11 @@ function setup() {
     sndSelect.src = "sound/select.wav";
     sndTurnOver.src = "sound/turnOver.wav";
 
-    // マウス操作
-    canvas.addEventListener('click', function () {
+    // 操作
+    canvas.addEventListener('pointerup', function (e) {
+        e.preventDefault();
+        mouse.x = e.clientX / scaleRate;
+        mouse.y = e.clientY / scaleRate;
         // スタートボタン
         if (state == 0) {
             if (mouse.x >= 330 && mouse.x <= 480 && mouse.y >= 240 && mouse.y <= 300) {
@@ -403,7 +407,7 @@ function setup() {
                 if (mouse.x >= 310 && mouse.x <= 490 && mouse.y >= 50 && mouse.y <= 80) {
                     let rs = confirm("ゲームのデータはすべて消去されます。\n本当によろしいですか？");
                     if (rs) {
-                        localStorage.clear();
+                        resetData();
                         window.location.reload();
                     }
                 }
